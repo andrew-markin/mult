@@ -9,7 +9,7 @@
           class="text-h5 absolute-top-right q-ma-sm q-px-md"
           @click="drop()"
         />
-        <div class="absolute-full flex flex-center text-h1 no-pointer-events">
+        <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
           {{ question }}
         </div>
       </div>
@@ -21,7 +21,7 @@
         <simple-button v-else class="col-12 bg-info" label="Reveal the answer" @click="reveal()" />
       </div>
       <div class="col relative-position text-accent">
-        <div class="absolute-full flex flex-center text-h1 no-pointer-events">
+        <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
           <template v-if="revealed">{{ answer }}</template>
           <template v-else>? ? ?</template>
         </div>
@@ -49,7 +49,7 @@ const option = ref()
 
 for (let a = 2; a <= 9; a++) {
   for (let b = 2; b <= 9; b++) {
-    const question = `${a} 🞩 ${b}`
+    const question = `${a} × ${b}`
     const answer = String(a * b)
     const optionState = savedState[question]
     const asked = optionState?.asked || 0
