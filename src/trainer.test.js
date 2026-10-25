@@ -13,6 +13,16 @@ describe('createFacts', () => {
     for (const { left, right, answer } of products) expect(answer).toBe(left * right)
   })
 
+  it('covers division by the same table', () => {
+    const quotients = facts.filter((fact) => fact.operator === '÷')
+    expect(quotients).toHaveLength(64)
+    for (const { left, right, answer } of quotients) {
+      expect(left).toBe(answer * right)
+      expect(answer).toBeGreaterThanOrEqual(2)
+      expect(answer).toBeLessThanOrEqual(9)
+    }
+  })
+
   it('keeps multiplication keys progress is stored by', () => {
     expect(facts.find((fact) => fact.key === '6 × 7')).toMatchObject({ left: 6, right: 7 })
   })

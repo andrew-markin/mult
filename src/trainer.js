@@ -1,9 +1,12 @@
-// Multiplication table facts from 2 × 2 to 9 × 9, keyed the way progress is stored
+// Multiplication table facts from 2 × 2 to 9 × 9 and the division facts they turn
+// into, keyed the way progress is stored
 export function createFacts() {
   const facts = []
   for (let a = 2; a <= 9; a++) {
     for (let b = 2; b <= 9; b++) {
-      facts.push({ key: `${a} × ${b}`, left: a, operator: '×', right: b, answer: a * b })
+      const product = a * b
+      facts.push({ key: `${a} × ${b}`, left: a, operator: '×', right: b, answer: product })
+      facts.push({ key: `${product} ÷ ${b}`, left: product, operator: '÷', right: b, answer: a })
     }
   }
   return facts
