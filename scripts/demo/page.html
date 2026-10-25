@@ -33,10 +33,11 @@
         padding: 12px;
         border-radius: 56px;
         background: #121214;
+        /* No drop shadow: the margins around are too narrow for it, and it would be cut off
+           into a visible edge of the animation */
         box-shadow:
           0 0 0 2px #5b5e66,
-          0 0 0 3px #2a2b30,
-          0 18px 40px rgba(0, 0, 0, 0.35);
+          0 0 0 3px #2a2b30;
       }
       .phone::before,
       .phone::after {
