@@ -8,9 +8,14 @@
           :color="scoreColor"
           :label="formatPercent(score)"
           :title="t.holdToReset"
-          class="text-h5 absolute-top-right q-ma-sm q-px-md cursor-pointer"
+          class="text-h5 q-ma-sm q-px-md cursor-pointer"
+          :class="dir === 'rtl' ? 'absolute-top-left' : 'absolute-top-right'"
         />
-        <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
+        <!-- Arithmetic reads left to right in right to left languages too -->
+        <div
+          dir="ltr"
+          class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events"
+        >
           {{ question }}
         </div>
       </div>
@@ -22,7 +27,10 @@
         <simple-button v-else class="col-12 bg-info" :label="t.reveal" @click="reveal()" />
       </div>
       <div class="col relative-position text-accent">
-        <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
+        <div
+          dir="ltr"
+          class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events"
+        >
           <template v-if="revealed">{{ answer }}</template>
           <template v-else>? ? ?</template>
         </div>
@@ -42,7 +50,7 @@ import { selectRandomly } from '@/utils'
 
 const $q = useQuasar()
 const mobileScreen = computed(() => $q.screen.width < 800)
-const { t, formatNumber, formatPercent } = useI18n()
+const { dir, t, formatNumber, formatPercent } = useI18n()
 
 function loadState() {
   try {
@@ -145,8 +153,9 @@ function grade(success) {
 function onKeydown(event) {
   if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return
   if (!revealed.value && [' ', 'Enter'].includes(event.key)) reveal()
-  else if (revealed.value && event.key === 'ArrowLeft') grade(false)
-  else if (revealed.value && event.key === 'ArrowRight') grade(true)
+  // Arrows point at the buttons, which swap places in right to left languages
+  else if (revealed.value && event.key === 'ArrowLeft') grade(dir.value === 'rtl')
+  else if (revealed.value && event.key === 'ArrowRight') grade(dir.value !== 'rtl')
   else return
   event.preventDefault()
 }

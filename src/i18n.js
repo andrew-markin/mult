@@ -5,6 +5,13 @@ import messages from '@/locales'
 // Deprecated and macro language codes mapped to the ones translations are keyed by
 const ALIASES = { in: 'id', iw: 'he', mo: 'ro', no: 'nb', tl: 'fil' }
 
+// Translated languages written from right to left
+const RTL = new Set(['ar', 'fa', 'he', 'ur'])
+
+export function textDirection(key) {
+  return RTL.has(key.split('-')[0]) ? 'rtl' : 'ltr'
+}
+
 // Picks the first of the user's preferred languages there is a translation for.
 // Translations are keyed by language, optionally refined by region or script,
 // like pt-PT or zh-Hant, so zh-TW resolves to zh-Hant and pt-BR to pt.
@@ -37,8 +44,10 @@ export function useI18n() {
   })
 
   const locale = computed(() => current.value.tag)
+  const dir = computed(() => textDirection(current.value.key))
   watchEffect(() => {
     document.documentElement.lang = locale.value
+    document.documentElement.dir = dir.value
   })
 
   const numberFormat = computed(() => new Intl.NumberFormat(locale.value))
@@ -53,6 +62,7 @@ export function useI18n() {
 
   i18n = {
     locale,
+    dir,
     t: computed(() => ({ ...messages.en, ...messages[current.value.key] })),
     formatNumber: (value) => numberFormat.value.format(value),
     formatPercent: (value) => percentFormat.value.format(value / 100)

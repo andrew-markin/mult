@@ -29,6 +29,11 @@
         -webkit-user-select: none;
         -webkit-touch-callout: none;
       }
+      /* Quasar forces left to right, let the dir set for the language (see i18n.js) apply */
+      html[dir='rtl'],
+      html[dir='rtl'] body {
+        direction: rtl;
+      }
       /* Keep the app hidden until its fonts are loaded, see main.js, then fade it in */
       #app {
         transition: opacity 0.4s ease-out;

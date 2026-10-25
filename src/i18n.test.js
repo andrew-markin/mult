@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { resolveLocale } from '@/i18n'
+import { resolveLocale, textDirection } from '@/i18n'
 import messages from '@/locales'
 
 describe('resolveLocale', () => {
@@ -35,6 +35,13 @@ describe('resolveLocale', () => {
 
   it('keeps the full tag for formatting numbers', () => {
     expect(resolveLocale(['en-IN']).tag).toBe('en-IN')
+  })
+})
+
+describe('textDirection', () => {
+  it('is right to left for Arabic, Persian, Hebrew and Urdu', () => {
+    for (const key of ['ar', 'fa', 'he', 'ur']) expect(textDirection(key)).toBe('rtl')
+    for (const key of ['en', 'ru', 'zh-Hant', 'pt-PT']) expect(textDirection(key)).toBe('ltr')
   })
 })
 
