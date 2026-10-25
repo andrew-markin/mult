@@ -1,15 +1,23 @@
 # Mult
 
+[![Deploy](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml/badge.svg)](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml)
+[![License: GPL v3](https://img.shields.io/github/license/andrew-markin/mult)](LICENSE)
+
 Multiplication trainer. A progressive web app that drills the multiplication table from 2 × 2 to
 9 × 9, along with division by it, and keeps asking the facts you don't know yet until you do.
+
+**Try it at [mult.mayfleet.com](https://mult.mayfleet.com/).** To use it like an app, offline too,
+install it: in Safari on iPhone or iPad tap Share → Add to Home Screen, in Chrome tap Install app
+(or Add to Home screen) in the menu.
 
 ## How to use
 
 1. Look at the question and answer it in your head.
 2. Tap **Reveal the answer** (or press Space / Enter).
-3. Be honest: tap **I knew** (→) or **I didn't know** (←).
+3. Be honest: tap **I knew** (→) or **I didn't know** (←). The arrow keys point at the buttons,
+   so they swap in right-to-left languages.
 
-The badge in the top right corner shows the share of facts whose last answer was correct. Press and
+The badge in the top corner shows the share of facts whose last answer was correct. Press and
 hold it for a second to reset all progress. Progress is kept in the browser's local storage, so
 it survives reloads and works offline once the app is installed.
 
@@ -50,6 +58,8 @@ and then, less often the more times they have been confirmed. The rules live in
 
 ## Development
 
+Requires Node.js 22.22+ or 24.15+.
+
 ```sh
 npm install
 npm run dev      # dev server at http://localhost:8085
@@ -69,3 +79,7 @@ a new screen size, add it to the list there, otherwise the app launches with a w
 Every push to `main` runs the tests, builds the app and publishes `dist/` to the `gh-pages` branch
 via [GitHub Actions](.github/workflows/deploy.yml). The custom domain is set by
 [`public/CNAME`](public/CNAME).
+
+## License
+
+[GNU General Public License v3.0](LICENSE)
