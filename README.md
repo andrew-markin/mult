@@ -1,6 +1,6 @@
-<img align="right" src="assets/demo.webp" width="300" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
-
 # Mult
+
+<img align="right" src="assets/demo.webp" width="355" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
 
 [![Deploy](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml/badge.svg)](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml)
 [![License: GPL v3](https://img.shields.io/github/license/andrew-markin/mult)](LICENSE)
@@ -11,6 +11,15 @@ Multiplication trainer. A progressive web app that drills the multiplication tab
 **Try it at [mult.mayfleet.com](https://mult.mayfleet.com/).** To use it like an app, offline too,
 install it: in Safari on iPhone or iPad tap Share → Add to Home Screen, in Chrome tap Install app
 (or Add to Home screen) in the menu.
+
+- **Spaced repetition:** mistakes come back soon, while well-known facts are confirmed less and
+  less often.
+- **Multiplication and division** mixed in one flow, 128 facts from 2 × 2 to 9 × 9.
+- **79 languages**, picked by the browser, with local digits and operation signs.
+- **Keyboard friendly:** Space or Enter reveals the answer, the arrow keys grade it.
+- **Works offline** once installed. Progress stays on the device: no sign-up, no ads, no
+  tracking.
+- **Free and open source** under the GPL-3.0.
 
 ## How to use
 
