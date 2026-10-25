@@ -3,7 +3,7 @@
 [![Deploy](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml/badge.svg)](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml)
 [![License: GPL v3](https://img.shields.io/github/license/andrew-markin/mult)](LICENSE)
 
-<img align="right" src="assets/demo.webp" width="355" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
+<img align="right" src="assets/demo.webp" width="340" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
 
 Multiplication trainer. A progressive web app that drills the multiplication table from 2 × 2 to
 9 × 9, along with division by it, and keeps asking the facts you don't know yet until you do.

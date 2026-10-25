@@ -43,7 +43,8 @@ const { values: options } = parseArgs({
 })
 
 const WIDTH = 568
-const HEIGHT = 812
+// Ends right below the language label, with no empty margin for the README heading lines to run into
+const HEIGHT = 792
 // Recorded at a constant rate and scale, both are reduced when encoding to WebP
 const SCALE = 1.5
 const FPS = 30
