@@ -7,6 +7,7 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 import iosSplashScreens from './plugins/ios-splash-screens.js'
+import purgeCss from './plugins/purge-css.js'
 
 const background = '#37474f'
 
@@ -76,7 +77,9 @@ export default defineConfig({
         ]
       }
     }),
-    iosSplashScreens({ color: background })
+    iosSplashScreens({ color: background }),
+    // The score badge colors are picked at runtime
+    purgeCss({ safelist: ['bg-negative', 'bg-warning', 'bg-positive'] })
   ],
   resolve: {
     alias: {
