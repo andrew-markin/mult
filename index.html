@@ -11,8 +11,10 @@
     <title>Mult</title>
     <style>
       html {
-        /* No pinch or double-tap zoom */
-        touch-action: pan-x pan-y;
+        /* No zooming, scrolling, or overscroll bounce: the app fits the screen */
+        touch-action: none;
+        overflow: hidden;
+        overscroll-behavior: none;
       }
       body {
         background-color: #37474f;
