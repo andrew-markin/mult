@@ -45,6 +45,11 @@ npm run format   # Prettier
 npm run build    # production build into dist/
 ```
 
+iOS ignores the web app manifest for launch screens, so the build generates plain background
+launch images for every iPhone and iPad screen size with
+[`plugins/ios-splash-screens.js`](plugins/ios-splash-screens.js). When Apple releases a device with
+a new screen size, add it to the list there, otherwise the app launches with a white screen on it.
+
 ## Deployment
 
 Every push to `main` runs the tests, builds the app and publishes `dist/` to the `gh-pages` branch

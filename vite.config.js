@@ -6,6 +6,10 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+import iosSplashScreens from './plugins/ios-splash-screens.js'
+
+const background = '#37474f'
+
 // https://vite.dev/config/
 export default defineConfig({
   server: {
@@ -30,14 +34,16 @@ export default defineConfig({
         // script, not with the inline one, so new versions would wait for all tabs to close
         skipWaiting: true,
         clientsClaim: true,
-        globPatterns: ['**/*.{js,css,html,png,svg,ttf,woff,woff2}']
+        globPatterns: ['**/*.{js,css,html,png,svg,ttf,woff,woff2}'],
+        // iOS reads launch screens when the app is added to the home screen, no need to cache them
+        globIgnores: ['splash/**']
       },
       manifest: {
         name: 'Mult',
         short_name: 'Mult',
         description: 'Multiplication trainer',
-        theme_color: '#37474f',
-        background_color: '#37474f',
+        theme_color: background,
+        background_color: background,
         orientation: 'portrait-primary',
         display: 'standalone',
         scope: '/',
@@ -69,7 +75,8 @@ export default defineConfig({
           }
         ]
       }
-    })
+    }),
+    iosSplashScreens({ color: background })
   ],
   resolve: {
     alias: {
