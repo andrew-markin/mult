@@ -40,7 +40,16 @@ import { selectRandomly } from '@/utils'
 const $q = useQuasar()
 const mobileScreen = computed(() => $q.screen.width < 800)
 
-const savedState = JSON.parse(localStorage.getItem('state')) || {}
+function loadState() {
+  try {
+    const state = JSON.parse(localStorage.getItem('state'))
+    return state && typeof state === 'object' ? state : {}
+  } catch {
+    return {}
+  }
+}
+
+const savedState = loadState()
 
 const iteration = ref(savedState?.iteration || 1)
 
@@ -86,7 +95,11 @@ function flush() {
   for (const { question, asked, confirms } of options.value) {
     state[question] = { asked, confirms }
   }
-  localStorage.setItem('state', JSON.stringify(state))
+  try {
+    localStorage.setItem('state', JSON.stringify(state))
+  } catch {
+    // Storage is unavailable or full, keep progress in memory only
+  }
 }
 
 function drop() {
