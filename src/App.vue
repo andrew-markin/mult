@@ -6,7 +6,7 @@
           v-touch-hold:1000.mouse="drop"
           rounded
           :color="scoreColor"
-          :label="`${score}%`"
+          :label="`${score.toFixed(1)}%`"
           title="Hold to reset progress"
           class="text-h5 absolute-top-right q-ma-sm q-px-md cursor-pointer"
         />
@@ -118,7 +118,7 @@ const answer = computed(() => option.value?.answer)
 const score = computed(() => {
   if (!options.value?.length) return 0
   const success = options.value.reduce((acc, option) => acc + (option.confirms ? 1 : 0), 0)
-  return ((success * 100) / options.value.length).toFixed(1)
+  return (success * 100) / options.value.length
 })
 
 const scoreColor = computed(() => {
