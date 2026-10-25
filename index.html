@@ -18,7 +18,10 @@
       }
       body {
         background-color: #37474f;
+        /* No text selection or long press callout, Safari still needs prefixes */
         user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
       }
       /* Keep the app hidden until its fonts are loaded, see main.js */
       #app:not(.ready) {
