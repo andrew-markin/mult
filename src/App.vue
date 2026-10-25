@@ -127,18 +127,26 @@ const scoreColor = computed(() => {
   return 'positive'
 })
 
-const reveal = debounce(() => {
-  revealed.value = true
-}, 300)
+// Act immediately, but ignore any further action until taps settle down,
+// so a double tap on "Reveal the answer" doesn't also grade the answer
+const act = debounce((action) => action(), 300, true)
 
-const grade = debounce((success) => {
-  if (!option.value) return
-  option.value.asked = iteration.value++
-  if (success) option.value.confirms++
-  else option.value.confirms = 0
-  flush()
-  reset()
-}, 300)
+function reveal() {
+  act(() => {
+    revealed.value = true
+  })
+}
+
+function grade(success) {
+  act(() => {
+    if (!option.value) return
+    option.value.asked = iteration.value++
+    if (success) option.value.confirms++
+    else option.value.confirms = 0
+    flush()
+    reset()
+  })
+}
 
 reset()
 </script>
