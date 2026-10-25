@@ -38,11 +38,11 @@ const { values: options } = parseArgs({
     'from-screencast': { type: 'boolean', default: false },
     fps: { type: 'string', default: '12' },
     // Width of the animation in pixels, as wide as the page in CSS pixels by default
-    width: { type: 'string', default: '480' }
+    width: { type: 'string', default: '568' }
   }
 })
 
-const WIDTH = 480
+const WIDTH = 568
 const HEIGHT = 812
 // Recorded at a constant rate and scale, both are reduced when encoding to WebP
 const SCALE = 1.5
