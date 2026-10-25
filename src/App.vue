@@ -36,6 +36,7 @@ import { debounce, useQuasar } from 'quasar'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import SimpleButton from '@/components/SimpleButton.vue'
+import { getProbability, isAskable } from '@/trainer'
 import { selectRandomly } from '@/utils'
 
 const $q = useQuasar()
@@ -74,20 +75,8 @@ function reset() {
   revealed.value = false
   option.value = selectRandomly(
     options.value
-      // Keep only options asked more than 5 iterations ago, or not asked at all
-      .filter((option) => !option.asked || iteration.value - option.asked > 5)
-      .map((option) => {
-        let probability = 100 // Essential tendency to ask
-        if (option.asked) {
-          // Strong tendency to ask again after a mistake, yet weaker than for new options
-          if (option.confirms <= 0) probability = 50
-          // Tendency not to ask again for 20 iterations after correct answer
-          else if (iteration.value - option.asked < 20) probability = 1
-          // Weak and fading tendency to confirm correct answer
-          else probability = 30 - Math.min(option.confirms, 9) * 3
-        }
-        return [option, probability]
-      })
+      .filter((option) => isAskable(option, iteration.value))
+      .map((option) => [option, getProbability(option, iteration.value)])
   )
 }
 
