@@ -33,7 +33,7 @@
 
 <script setup>
 import { debounce, useQuasar } from 'quasar'
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import SimpleButton from '@/components/SimpleButton.vue'
 import { selectRandomly } from '@/utils'
@@ -147,6 +147,18 @@ function grade(success) {
     reset()
   })
 }
+
+function onKeydown(event) {
+  if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return
+  if (!revealed.value && [' ', 'Enter'].includes(event.key)) reveal()
+  else if (revealed.value && event.key === 'ArrowLeft') grade(false)
+  else if (revealed.value && event.key === 'ArrowRight') grade(true)
+  else return
+  event.preventDefault()
+}
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
 reset()
 </script>
