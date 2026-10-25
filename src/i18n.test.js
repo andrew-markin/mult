@@ -17,6 +17,22 @@ describe('resolveLocale', () => {
     expect(resolveLocale(['xx', 'ru-RU', 'en'])).toEqual({ tag: 'ru-RU', key: 'ru' })
   })
 
+  it('picks regional and script variants', () => {
+    expect(resolveLocale(['pt-BR']).key).toBe('pt')
+    expect(resolveLocale(['pt-PT']).key).toBe('pt-PT')
+    expect(resolveLocale(['zh-CN']).key).toBe('zh')
+    expect(resolveLocale(['zh-TW']).key).toBe('zh-Hant')
+    expect(resolveLocale(['zh-HK']).key).toBe('zh-Hant')
+    expect(resolveLocale(['sr']).key).toBe('sr')
+    expect(resolveLocale(['sr-Latn-RS']).key).toBe('sr-Latn')
+  })
+
+  it('understands deprecated and macro language codes', () => {
+    expect(resolveLocale(['no']).key).toBe('nb')
+    expect(resolveLocale(['iw']).key).toBe('he')
+    expect(resolveLocale(['tl']).key).toBe('fil')
+  })
+
   it('keeps the full tag for formatting numbers', () => {
     expect(resolveLocale(['en-IN']).tag).toBe('en-IN')
   })
