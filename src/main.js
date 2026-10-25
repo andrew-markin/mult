@@ -6,6 +6,9 @@ import { createApp } from 'vue'
 
 import App from '@/App.vue'
 
+// Safari ignores user-scalable=no in the viewport, so block pinch zoom directly
+document.addEventListener('gesturestart', (event) => event.preventDefault())
+
 const app = createApp(App)
 
 app.use(Quasar, { plugins: {} })

@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Mult</title>
     <style>
+      html {
+        /* No pinch or double-tap zoom */
+        touch-action: pan-x pan-y;
+      }
       body {
         background-color: #37474f;
         user-select: none;
