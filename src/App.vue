@@ -45,7 +45,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import SimpleButton from '@/components/SimpleButton.vue'
 import { useI18n } from '@/i18n'
-import { createFacts, getProbability, isAskable } from '@/trainer'
+import { createFacts, getProbability, isAskable, recentFamilies } from '@/trainer'
 import { selectRandomly } from '@/utils'
 
 const $q = useQuasar()
@@ -79,9 +79,10 @@ const revealed = ref(true)
 
 function reset() {
   revealed.value = false
+  const recent = recentFamilies(options.value, iteration.value)
   option.value = selectRandomly(
     options.value
-      .filter((option) => isAskable(option, iteration.value))
+      .filter((option) => isAskable(option, iteration.value) && !recent.has(option.family))
       .map((option) => [option, getProbability(option, iteration.value)])
   )
 }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { createFacts, getProbability, isAskable } from '@/trainer'
+import { createFacts, getProbability, isAskable, recentFamilies } from '@/trainer'
 
 const option = (asked, confirms) => ({ asked, confirms })
 
@@ -40,6 +40,24 @@ describe('isAskable', () => {
   it('skips options asked within the last 5 iterations', () => {
     expect(isAskable(option(10, 0), 15)).toBe(false)
     expect(isAskable(option(10, 0), 16)).toBe(true)
+  })
+})
+
+describe('recentFamilies', () => {
+  it('groups facts sharing factors', () => {
+    const family = (key) => createFacts().find((fact) => fact.key === key).family
+    expect(new Set(['6 × 7', '7 × 6', '42 ÷ 6', '42 ÷ 7'].map(family)).size).toBe(1)
+    expect(family('6 × 7')).not.toBe(family('6 × 8'))
+  })
+
+  it('collects families asked within the last 5 iterations', () => {
+    const options = [
+      { family: 'a', asked: 0 },
+      { family: 'b', asked: 10 },
+      { family: 'c', asked: 15 }
+    ]
+    expect(recentFamilies(options, 16)).toEqual(new Set(['c']))
+    expect(recentFamilies(options, 15)).toEqual(new Set(['b', 'c']))
   })
 })
 

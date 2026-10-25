@@ -5,8 +5,17 @@ export function createFacts() {
   for (let a = 2; a <= 9; a++) {
     for (let b = 2; b <= 9; b++) {
       const product = a * b
-      facts.push({ key: `${a} × ${b}`, left: a, operator: '×', right: b, answer: product })
-      facts.push({ key: `${product} ÷ ${b}`, left: product, operator: '÷', right: b, answer: a })
+      // Facts sharing factors, like 6 × 7, 7 × 6, 42 ÷ 6 and 42 ÷ 7
+      const family = `${Math.min(a, b)} × ${Math.max(a, b)}`
+      facts.push({ key: `${a} × ${b}`, family, left: a, operator: '×', right: b, answer: product })
+      facts.push({
+        key: `${product} ÷ ${b}`,
+        family,
+        left: product,
+        operator: '÷',
+        right: b,
+        answer: a
+      })
     }
   }
   return facts
@@ -15,6 +24,16 @@ export function createFacts() {
 // Keep only options asked more than 5 iterations ago, or not asked at all
 export function isAskable(option, iteration) {
   return !option.asked || iteration - option.asked > 5
+}
+
+// Families of facts asked within the last 5 iterations, so that a related fact
+// doesn't come right after, giving its answer away
+export function recentFamilies(options, iteration) {
+  return new Set(
+    options
+      .filter((option) => option.asked && iteration - option.asked <= 5)
+      .map((option) => option.family)
+  )
 }
 
 export function getProbability(option, iteration) {
