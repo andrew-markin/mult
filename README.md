@@ -1,7 +1,7 @@
 # Mult
 
 Multiplication trainer. A progressive web app that drills the multiplication table from 2 × 2 to
-9 × 9 and keeps asking the facts you don't know yet until you do.
+9 × 9, along with division by it, and keeps asking the facts you don't know yet until you do.
 
 ## How to use
 
@@ -14,7 +14,9 @@ hold it for a second to reset all progress. Progress is kept in the browser's lo
 it survives reloads and works offline once the app is installed.
 
 Both `a × b` and `b × a` are asked separately on purpose: recognizing either form is part of the
-training. Multiplying by 1 is too trivial to be worth drilling, hence the table starts with 2.
+training. So are both divisions they turn into, `ab ÷ a` and `ab ÷ b`, mixed into the same flow,
+128 facts in all. Multiplying by 1 is too trivial to be worth drilling, hence the table starts
+with 2.
 
 ## Languages
 
@@ -29,15 +31,16 @@ language code (with a region or script when needed, like `pt-PT` or `zh-Hant`).
 
 Every answer advances an iteration counter. For each fact the trainer remembers the iteration it was
 last asked at and how many times in a row it was answered correctly. The next question is drawn at
-random, weighted as follows:
+random, weighted as follows (related facts are the ones sharing factors, like 6 × 7, 7 × 6, 42 ÷ 6
+and 42 ÷ 7, so that one doesn't give the answer to another away):
 
-| Fact state                                     | Weight                         |
-| ---------------------------------------------- | ------------------------------ |
-| Asked within the last 5 iterations             | excluded                       |
-| Never asked                                    | 100                            |
-| Last answer was wrong                          | 50                             |
-| Answered correctly less than 20 iterations ago | 1                              |
-| Answered correctly earlier                     | 30 − 3 × min(correct, 9), 27…3 |
+| Fact state                                      | Weight                         |
+| ----------------------------------------------- | ------------------------------ |
+| It or a related fact asked in last 5 iterations | excluded                       |
+| Never asked                                     | 100                            |
+| Last answer was wrong                           | 50                             |
+| Answered correctly less than 20 iterations ago  | 1                              |
+| Answered correctly earlier                      | 30 − 3 × min(correct, 9), 27…3 |
 
 So new facts keep flowing in, mistakes come back soon, and well-known facts are confirmed every now
 and then, less often the more times they have been confirmed. The rules live in
