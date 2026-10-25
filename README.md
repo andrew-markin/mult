@@ -92,9 +92,9 @@ when the interface changes.
 
 ## Deployment
 
-Every push to `main` runs the tests, builds the app and publishes `dist/` to the `gh-pages` branch
-via [GitHub Actions](.github/workflows/deploy.yml). The custom domain is set by
-[`public/CNAME`](public/CNAME).
+Every push to `main` runs the tests, builds the app and publishes it to GitHub Pages via
+[GitHub Actions](.github/workflows/deploy.yml), straight from the build with no `gh-pages` branch.
+The custom domain is set in the Pages settings of the repository.
 
 ## License
 
