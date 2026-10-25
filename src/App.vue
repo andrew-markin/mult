@@ -180,6 +180,13 @@ reset()
   border-top: none;
   border-bottom: none;
 }
+// Answers are short enough for a line on common phones, scale them down to fit narrower ones
+@media (max-width: 359px) {
+  .text-button {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
 @media (min-width: 550px) {
   .container {
     width: 500px;
