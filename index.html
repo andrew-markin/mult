@@ -11,6 +11,10 @@
         background-color: #37474f;
         user-select: none;
       }
+      /* Keep the app hidden until its fonts are loaded, see main.js */
+      #app:not(.ready) {
+        visibility: hidden;
+      }
     </style>
   </head>
   <body>
