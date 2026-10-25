@@ -69,7 +69,7 @@ function reset() {
       .map((option) => {
         let probability = 100 // Essential tendency to ask
         if (option.asked) {
-          // Strong tendency to ask again if you make a mistake
+          // Strong tendency to ask again after a mistake, yet weaker than for new options
           if (option.confirms <= 0) probability = 50
           // Tendency not to ask again for 20 iterations after correct answer
           else if (iteration.value - option.asked < 20) probability = 1
