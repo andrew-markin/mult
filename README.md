@@ -15,7 +15,7 @@ install it: in Safari on iPhone or iPad tap Share → Add to Home Screen, in Chr
 - **Spaced repetition:** mistakes come back soon, while well-known facts are confirmed less and
   less often.
 - **Multiplication and division** mixed in one flow, 128 facts from 2 × 2 to 9 × 9.
-- **79 languages**, picked by the browser, with local digits and operation signs.
+- **70 languages**, picked by the browser, with local digits and operation signs.
 - **Keyboard friendly:** Space or Enter reveals the answer, the arrow keys grade it.
 - **Works offline** once installed. Progress stays on the device: no sign-up, no ads, no
   tracking.

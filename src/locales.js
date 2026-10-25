@@ -15,12 +15,6 @@ export default {
     knew: 'Weet',
     holdToReset: 'Hou in om vordering terug te stel'
   },
-  am: {
-    reveal: 'መልሱን አሳይ',
-    didntKnow: 'አላውቅም ነበር',
-    knew: 'አውቅ ነበር',
-    holdToReset: 'እድገትን ዳግም ለማስጀመር ተጭነው ይያዙ'
-  },
   ar: {
     reveal: 'إظهار الإجابة',
     didntKnow: 'لم أكن أعرف',
@@ -257,12 +251,6 @@ export default {
     times: '·',
     divide: ':'
   },
-  km: {
-    reveal: 'បង្ហាញចម្លើយ',
-    didntKnow: 'ខ្ញុំមិនបានដឹង',
-    knew: 'ខ្ញុំបានដឹង',
-    holdToReset: 'ចុចឱ្យជាប់ដើម្បីកំណត់វឌ្ឍនភាពឡើងវិញ'
-  },
   kn: {
     reveal: 'ಉತ್ತರ ತೋರಿಸಿ',
     didntKnow: 'ನನಗೆ ಗೊತ್ತಿರಲಿಲ್ಲ',
@@ -274,20 +262,6 @@ export default {
     didntKnow: '몰랐어요',
     knew: '알았어요',
     holdToReset: '길게 눌러 진행 상황 초기화'
-  },
-  ky: {
-    reveal: 'Жоопту көрсөтүү',
-    didntKnow: 'Билбейм',
-    knew: 'Билем',
-    holdToReset: 'Прогрессти баштапкы абалга келтирүү үчүн басып туруңуз',
-    times: '·',
-    divide: ':'
-  },
-  lo: {
-    reveal: 'ສະແດງຄຳຕອບ',
-    didntKnow: 'ບໍ່ຮູ້',
-    knew: 'ຮູ້',
-    holdToReset: 'ກົດຄ້າງໄວ້ເພື່ອຣີເຊັດຄວາມຄືບໜ້າ'
   },
   lt: {
     reveal: 'Rodyti atsakymą',
@@ -319,14 +293,6 @@ export default {
     knew: 'അറിയാം',
     holdToReset: 'പുരോഗതി പുനഃസജ്ജമാക്കാൻ അമർത്തിപ്പിടിക്കുക'
   },
-  mn: {
-    reveal: 'Хариултыг харуулах',
-    didntKnow: 'Мэдэхгүй',
-    knew: 'Мэднэ',
-    holdToReset: 'Явцыг шинэчлэхийн тулд удаан дарна уу',
-    times: '·',
-    divide: ':'
-  },
   mr: {
     reveal: 'उत्तर दाखवा',
     didntKnow: 'मला माहीत नव्हते',
@@ -338,12 +304,6 @@ export default {
     didntKnow: 'Tidak tahu',
     knew: 'Tahu',
     holdToReset: 'Tekan lama untuk menetapkan semula kemajuan'
-  },
-  my: {
-    reveal: 'အဖြေကိုပြပါ',
-    didntKnow: 'မသိခဲ့ပါ',
-    knew: 'သိခဲ့ပါတယ်',
-    holdToReset: 'တိုးတက်မှုကို ပြန်လည်သတ်မှတ်ရန် ဖိထားပါ'
   },
   nb: {
     reveal: 'Vis svaret',
@@ -415,12 +375,6 @@ export default {
     holdToReset: 'Удерживайте, чтобы сбросить прогресс',
     times: '·',
     divide: ':'
-  },
-  si: {
-    reveal: 'පිළිතුර පෙන්වන්න',
-    didntKnow: 'දන්නේ නැහැ',
-    knew: 'දන්නවා',
-    holdToReset: 'ප්‍රගතිය යළි සැකසීමට ඔබාගෙන සිටින්න'
   },
   sk: {
     reveal: 'Zobraziť odpoveď',
@@ -510,14 +464,6 @@ export default {
     knew: 'معلوم تھا',
     holdToReset: 'پیش رفت ری سیٹ کرنے کے لیے دبائے رکھیں'
   },
-  uz: {
-    reveal: 'Javobni ko‘rsatish',
-    didntKnow: 'Bilmasdim',
-    knew: 'Bilardim',
-    holdToReset: 'Taraqqiyotni tiklash uchun bosib turing',
-    times: '·',
-    divide: ':'
-  },
   vi: {
     reveal: 'Hiện đáp án',
     didntKnow: 'Không biết',
@@ -525,11 +471,5 @@ export default {
     holdToReset: 'Nhấn giữ để đặt lại tiến độ'
   },
   zh: { reveal: '显示答案', didntKnow: '不知道', knew: '知道', holdToReset: '长按重置进度' },
-  'zh-Hant': { reveal: '顯示答案', didntKnow: '不知道', knew: '知道', holdToReset: '長按重設進度' },
-  zu: {
-    reveal: 'Bonisa impendulo',
-    didntKnow: 'Bengingazi',
-    knew: 'Bengazi',
-    holdToReset: 'Cindezela ubambe ukuze usethe kabusha inqubekelaphambili'
-  }
+  'zh-Hant': { reveal: '顯示答案', didntKnow: '不知道', knew: '知道', holdToReset: '長按重設進度' }
 }
