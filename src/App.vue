@@ -6,8 +6,8 @@
           v-touch-hold:1000.mouse="drop"
           rounded
           :color="scoreColor"
-          :label="`${score.toFixed(1)}%`"
-          title="Hold to reset progress"
+          :label="formatPercent(score)"
+          :title="t.holdToReset"
           class="text-h5 absolute-top-right q-ma-sm q-px-md cursor-pointer"
         />
         <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
@@ -16,10 +16,10 @@
       </div>
       <div class="text-h6 row no-wrap q-pa-none text-center text-button">
         <template v-if="revealed">
-          <simple-button class="col-6 bg-negative" label="I didn't know" @click="grade(false)" />
-          <simple-button class="col-6 bg-positive" label="I knew" @click="grade(true)" />
+          <simple-button class="col-6 bg-negative" :label="t.didntKnow" @click="grade(false)" />
+          <simple-button class="col-6 bg-positive" :label="t.knew" @click="grade(true)" />
         </template>
-        <simple-button v-else class="col-12 bg-info" label="Reveal the answer" @click="reveal()" />
+        <simple-button v-else class="col-12 bg-info" :label="t.reveal" @click="reveal()" />
       </div>
       <div class="col relative-position text-accent">
         <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
@@ -36,11 +36,13 @@ import { debounce, useQuasar } from 'quasar'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import SimpleButton from '@/components/SimpleButton.vue'
+import { useI18n } from '@/i18n'
 import { getProbability, isAskable } from '@/trainer'
 import { selectRandomly } from '@/utils'
 
 const $q = useQuasar()
 const mobileScreen = computed(() => $q.screen.width < 800)
+const { t, formatNumber, formatPercent } = useI18n()
 
 function loadState() {
   try {
@@ -60,12 +62,11 @@ const option = ref()
 
 for (let a = 2; a <= 9; a++) {
   for (let b = 2; b <= 9; b++) {
-    const question = `${a} × ${b}`
-    const answer = String(a * b)
-    const optionState = savedState[question]
+    const key = `${a} × ${b}`
+    const optionState = savedState[key]
     const asked = optionState?.asked || 0
     const confirms = optionState?.confirms || 0
-    options.value.push({ question, answer, asked, confirms })
+    options.value.push({ key, a, b, asked, confirms })
   }
 }
 
@@ -82,8 +83,8 @@ function reset() {
 
 function flush() {
   const state = { iteration: iteration.value }
-  for (const { question, asked, confirms } of options.value) {
-    state[question] = { asked, confirms }
+  for (const { key, asked, confirms } of options.value) {
+    state[key] = { asked, confirms }
   }
   try {
     localStorage.setItem('state', JSON.stringify(state))
@@ -101,8 +102,12 @@ function drop() {
   flush()
 }
 
-const question = computed(() => option.value?.question)
-const answer = computed(() => option.value?.answer)
+const question = computed(() => {
+  if (!option.value) return undefined
+  const { a, b } = option.value
+  return `${formatNumber(a)} × ${formatNumber(b)}`
+})
+const answer = computed(() => option.value && formatNumber(option.value.a * option.value.b))
 
 const score = computed(() => {
   if (!options.value?.length) return 0
