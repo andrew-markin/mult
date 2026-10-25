@@ -14,8 +14,7 @@
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/",
-    "deploy": "sh deploy.sh"
+    "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
     "@quasar/extras": "^1.18.0",
