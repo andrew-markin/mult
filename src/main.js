@@ -16,9 +16,7 @@ app.mount('#app')
 // in a fallback font. Hidden text is still laid out, which starts font loading,
 // and fonts are matched to whatever characters are on the page. Give up waiting
 // after a while in case the fonts can't be loaded at all.
+const root = document.querySelector('#app')
+void root.offsetHeight // Lay out right away, without waiting for a frame
 const timeout = new Promise((resolve) => setTimeout(resolve, 3000))
-requestAnimationFrame(() => {
-  Promise.race([document.fonts.ready, timeout]).then(() => {
-    document.querySelector('#app').classList.add('ready')
-  })
-})
+Promise.race([document.fonts.ready, timeout]).then(() => root.classList.add('ready'))
