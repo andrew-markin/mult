@@ -6,6 +6,10 @@
 Multiplication trainer. A progressive web app that drills the multiplication table from 2 × 2 to
 9 × 9, along with division by it, and keeps asking the facts you don't know yet until you do.
 
+<p align="center">
+  <img src="assets/demo.webp" width="320" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
+</p>
+
 **Try it at [mult.mayfleet.com](https://mult.mayfleet.com/).** To use it like an app, offline too,
 install it: in Safari on iPhone or iPad tap Share → Add to Home Screen, in Chrome tap Install app
 (or Add to Home screen) in the menu.
@@ -73,6 +77,11 @@ iOS ignores the web app manifest for launch screens, so the build generates plai
 launch images for every iPhone and iPad screen size with
 [`plugins/ios-splash-screens.js`](plugins/ios-splash-screens.js). When Apple releases a device with
 a new screen size, add it to the list there, otherwise the app launches with a white screen on it.
+
+The animation above is recorded by `npm run demo` with
+[`scripts/demo/record.js`](scripts/demo/record.js): it builds the app, plays a scripted session in
+headless Google Chrome and encodes the screencast to `assets/demo.webp` with ffmpeg. Record it again
+when the interface changes.
 
 ## Deployment
 
