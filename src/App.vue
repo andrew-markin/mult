@@ -45,7 +45,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import SimpleButton from '@/components/SimpleButton.vue'
 import { useI18n } from '@/i18n'
-import { getProbability, isAskable } from '@/trainer'
+import { createFacts, getProbability, isAskable } from '@/trainer'
 import { selectRandomly } from '@/utils'
 
 const $q = useQuasar()
@@ -68,14 +68,11 @@ const iteration = ref(savedState?.iteration || 1)
 const options = ref([])
 const option = ref()
 
-for (let a = 2; a <= 9; a++) {
-  for (let b = 2; b <= 9; b++) {
-    const key = `${a} × ${b}`
-    const optionState = savedState[key]
-    const asked = optionState?.asked || 0
-    const confirms = optionState?.confirms || 0
-    options.value.push({ key, a, b, asked, confirms })
-  }
+for (const fact of createFacts()) {
+  const optionState = savedState[fact.key]
+  const asked = optionState?.asked || 0
+  const confirms = optionState?.confirms || 0
+  options.value.push({ ...fact, asked, confirms })
 }
 
 const revealed = ref(true)
@@ -112,10 +109,10 @@ function drop() {
 
 const question = computed(() => {
   if (!option.value) return undefined
-  const { a, b } = option.value
-  return `${formatNumber(a)} × ${formatNumber(b)}`
+  const { left, operator, right } = option.value
+  return `${formatNumber(left)} ${operator} ${formatNumber(right)}`
 })
-const answer = computed(() => option.value && formatNumber(option.value.a * option.value.b))
+const answer = computed(() => option.value && formatNumber(option.value.answer))
 
 const score = computed(() => {
   if (!options.value?.length) return 0

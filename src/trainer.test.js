@@ -1,8 +1,26 @@
 import { describe, expect, it } from 'vitest'
 
-import { getProbability, isAskable } from '@/trainer'
+import { createFacts, getProbability, isAskable } from '@/trainer'
 
 const option = (asked, confirms) => ({ asked, confirms })
+
+describe('createFacts', () => {
+  const facts = createFacts()
+
+  it('covers the multiplication table from 2 to 9', () => {
+    const products = facts.filter((fact) => fact.operator === '×')
+    expect(products).toHaveLength(64)
+    for (const { left, right, answer } of products) expect(answer).toBe(left * right)
+  })
+
+  it('keeps multiplication keys progress is stored by', () => {
+    expect(facts.find((fact) => fact.key === '6 × 7')).toMatchObject({ left: 6, right: 7 })
+  })
+
+  it('gives every fact a unique key', () => {
+    expect(new Set(facts.map((fact) => fact.key)).size).toBe(facts.length)
+  })
+})
 
 describe('isAskable', () => {
   it('allows options never asked', () => {
