@@ -1,3 +1,5 @@
+<img align="right" src="assets/demo.webp" width="300" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
+
 # Mult
 
 [![Deploy](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml/badge.svg)](https://github.com/andrew-markin/mult/actions/workflows/deploy.yml)
@@ -5,10 +7,6 @@
 
 Multiplication trainer. A progressive web app that drills the multiplication table from 2 × 2 to
 9 × 9, along with division by it, and keeps asking the facts you don't know yet until you do.
-
-<p align="center">
-  <img src="assets/demo.webp" width="320" alt="Mult on a phone: questions on multiplication and division are revealed and graded as known or not, while the interface language switches between English, Russian, Spanish and Chinese">
-</p>
 
 **Try it at [mult.mayfleet.com](https://mult.mayfleet.com/).** To use it like an app, offline too,
 install it: in Safari on iPhone or iPad tap Share → Add to Home Screen, in Chrome tap Install app
