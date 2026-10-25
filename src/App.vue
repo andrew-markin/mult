@@ -3,11 +3,12 @@
     <div class="col column no-wrap" :class="{ display: !mobileScreen }">
       <div class="col relative-position text-accent">
         <q-badge
+          v-touch-hold:1000.mouse="drop"
           rounded
           :color="scoreColor"
           :label="`${score}%`"
-          class="text-h5 absolute-top-right q-ma-sm q-px-md"
-          @click="drop()"
+          title="Hold to reset progress"
+          class="text-h5 absolute-top-right q-ma-sm q-px-md cursor-pointer"
         />
         <div class="absolute-full flex flex-center text-h1 text-weight-medium no-pointer-events">
           {{ question }}
