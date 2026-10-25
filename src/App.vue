@@ -74,7 +74,7 @@ function reset() {
           // Tendency not to ask again for 20 iterations after correct answer
           else if (iteration.value - option.asked < 20) probability = 1
           // Weak and fading tendency to confirm correct answer
-          else probability = 30 - Math.max(option.confirms, 9) * 3
+          else probability = 30 - Math.min(option.confirms, 9) * 3
         }
         return [option, probability]
       })
