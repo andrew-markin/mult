@@ -111,7 +111,7 @@ function drop() {
 const question = computed(() => {
   if (!option.value) return undefined
   const { left, operator, right } = option.value
-  return `${formatNumber(left)} ${operator} ${formatNumber(right)}`
+  return `${formatNumber(left)} ${t.value[operator]} ${formatNumber(right)}`
 })
 const answer = computed(() => option.value && formatNumber(option.value.answer))
 

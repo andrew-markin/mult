@@ -1,10 +1,13 @@
-// UI translations keyed by language code, optionally refined by region or script (see i18n.js)
+// UI translations keyed by language code, optionally refined by region or script (see i18n.js).
+// Operation signs default to the English ones, override them where schools write them differently.
 export default {
   en: {
     reveal: 'Reveal the answer',
     didntKnow: "I didn't know",
     knew: 'I knew',
-    holdToReset: 'Hold to reset progress'
+    holdToReset: 'Hold to reset progress',
+    times: '×',
+    divide: '÷'
   },
   af: {
     reveal: 'Wys die antwoord',
@@ -28,19 +31,25 @@ export default {
     reveal: 'Cavabı göstər',
     didntKnow: 'Bilmirdim',
     knew: 'Bilirdim',
-    holdToReset: 'İrəliləyişi sıfırlamaq üçün basıb saxlayın'
+    holdToReset: 'İrəliləyişi sıfırlamaq üçün basıb saxlayın',
+    times: '·',
+    divide: ':'
   },
   be: {
     reveal: 'Паказаць адказ',
     didntKnow: 'Не ведаю',
     knew: 'Ведаю',
-    holdToReset: 'Утрымлівайце, каб скінуць прагрэс'
+    holdToReset: 'Утрымлівайце, каб скінуць прагрэс',
+    times: '·',
+    divide: ':'
   },
   bg: {
     reveal: 'Покажи отговора',
     didntKnow: 'Не знам',
     knew: 'Знам',
-    holdToReset: 'Задръжте, за да нулирате напредъка'
+    holdToReset: 'Задръжте, за да нулирате напредъка',
+    times: '·',
+    divide: ':'
   },
   bn: {
     reveal: 'উত্তর দেখান',
@@ -52,7 +61,9 @@ export default {
     reveal: 'Prikaži odgovor',
     didntKnow: 'Ne znam',
     knew: 'Znam',
-    holdToReset: 'Držite da poništite napredak'
+    holdToReset: 'Držite da poništite napredak',
+    times: '·',
+    divide: ':'
   },
   ca: {
     reveal: 'Mostra la resposta',
@@ -64,7 +75,9 @@ export default {
     reveal: 'Ukázat odpověď',
     didntKnow: 'Nevím',
     knew: 'Vím',
-    holdToReset: 'Podržením vynulujete postup'
+    holdToReset: 'Podržením vynulujete postup',
+    times: '·',
+    divide: ':'
   },
   cy: {
     reveal: 'Dangos yr ateb',
@@ -76,19 +89,25 @@ export default {
     reveal: 'Vis svaret',
     didntKnow: 'Vidste ikke',
     knew: 'Vidste det',
-    holdToReset: 'Hold nede for at nulstille fremskridt'
+    holdToReset: 'Hold nede for at nulstille fremskridt',
+    times: '·',
+    divide: ':'
   },
   de: {
     reveal: 'Antwort zeigen',
     didntKnow: 'Weiß nicht',
     knew: 'Weiß ich',
-    holdToReset: 'Gedrückt halten, um den Fortschritt zurückzusetzen'
+    holdToReset: 'Gedrückt halten, um den Fortschritt zurückzusetzen',
+    times: '·',
+    divide: ':'
   },
   el: {
     reveal: 'Εμφάνιση απάντησης',
     didntKnow: 'Δεν ήξερα',
     knew: 'Ήξερα',
-    holdToReset: 'Πατήστε παρατεταμένα για επαναφορά της προόδου'
+    holdToReset: 'Πατήστε παρατεταμένα για επαναφορά της προόδου',
+    times: '·',
+    divide: ':'
   },
   eo: {
     reveal: 'Montri la respondon',
@@ -106,7 +125,9 @@ export default {
     reveal: 'Näita vastust',
     didntKnow: 'Ei teadnud',
     knew: 'Teadsin',
-    holdToReset: 'Edenemise lähtestamiseks hoidke all'
+    holdToReset: 'Edenemise lähtestamiseks hoidke all',
+    times: '·',
+    divide: ':'
   },
   eu: {
     reveal: 'Erakutsi erantzuna',
@@ -124,7 +145,9 @@ export default {
     reveal: 'Näytä vastaus',
     didntKnow: 'En tiennyt',
     knew: 'Tiesin',
-    holdToReset: 'Nollaa edistyminen pitämällä painettuna'
+    holdToReset: 'Nollaa edistyminen pitämällä painettuna',
+    times: '·',
+    divide: ':'
   },
   fil: {
     reveal: 'Ipakita ang sagot',
@@ -136,7 +159,8 @@ export default {
     reveal: 'Afficher la réponse',
     didntKnow: 'Pas trouvé',
     knew: 'Trouvé',
-    holdToReset: 'Maintenez appuyé pour réinitialiser la progression'
+    holdToReset: 'Maintenez appuyé pour réinitialiser la progression',
+    divide: ':'
   },
   ga: {
     reveal: 'Taispeáin an freagra',
@@ -172,19 +196,25 @@ export default {
     reveal: 'Prikaži odgovor',
     didntKnow: 'Ne znam',
     knew: 'Znam',
-    holdToReset: 'Držite za poništavanje napretka'
+    holdToReset: 'Držite za poništavanje napretka',
+    times: '·',
+    divide: ':'
   },
   hu: {
     reveal: 'Válasz megjelenítése',
     didntKnow: 'Nem tudtam',
     knew: 'Tudtam',
-    holdToReset: 'Tartsa lenyomva a haladás visszaállításához'
+    holdToReset: 'Tartsa lenyomva a haladás visszaállításához',
+    times: '·',
+    divide: ':'
   },
   hy: {
     reveal: 'Ցույց տալ պատասխանը',
     didntKnow: 'Չգիտեի',
     knew: 'Գիտեի',
-    holdToReset: 'Սեղմած պահեք՝ առաջընթացը զրոյացնելու համար'
+    holdToReset: 'Սեղմած պահեք՝ առաջընթացը զրոյացնելու համար',
+    times: '·',
+    divide: ':'
   },
   id: {
     reveal: 'Tampilkan jawaban',
@@ -202,7 +232,8 @@ export default {
     reveal: 'Mostra la risposta',
     didntKnow: 'Non sapevo',
     knew: 'Sapevo',
-    holdToReset: 'Tieni premuto per azzerare i progressi'
+    holdToReset: 'Tieni premuto per azzerare i progressi',
+    divide: ':'
   },
   ja: {
     reveal: '答えを見る',
@@ -214,13 +245,17 @@ export default {
     reveal: 'პასუხის ჩვენება',
     didntKnow: 'არ ვიცოდი',
     knew: 'ვიცოდი',
-    holdToReset: 'დააჭირეთ და დააყოვნეთ პროგრესის გასანულებლად'
+    holdToReset: 'დააჭირეთ და დააყოვნეთ პროგრესის გასანულებლად',
+    times: '·',
+    divide: ':'
   },
   kk: {
     reveal: 'Жауапты көрсету',
     didntKnow: 'Білмедім',
     knew: 'Білдім',
-    holdToReset: 'Прогресті қалпына келтіру үшін басып тұрыңыз'
+    holdToReset: 'Прогресті қалпына келтіру үшін басып тұрыңыз',
+    times: '·',
+    divide: ':'
   },
   km: {
     reveal: 'បង្ហាញចម្លើយ',
@@ -244,7 +279,9 @@ export default {
     reveal: 'Жоопту көрсөтүү',
     didntKnow: 'Билбейм',
     knew: 'Билем',
-    holdToReset: 'Прогрессти баштапкы абалга келтирүү үчүн басып туруңуз'
+    holdToReset: 'Прогрессти баштапкы абалга келтирүү үчүн басып туруңуз',
+    times: '·',
+    divide: ':'
   },
   lo: {
     reveal: 'ສະແດງຄຳຕອບ',
@@ -256,19 +293,25 @@ export default {
     reveal: 'Rodyti atsakymą',
     didntKnow: 'Nežinojau',
     knew: 'Žinojau',
-    holdToReset: 'Palaikykite nuspaudę, kad iš naujo nustatytumėte pažangą'
+    holdToReset: 'Palaikykite nuspaudę, kad iš naujo nustatytumėte pažangą',
+    times: '·',
+    divide: ':'
   },
   lv: {
     reveal: 'Rādīt atbildi',
     didntKnow: 'Es nezināju',
     knew: 'Es zināju',
-    holdToReset: 'Turiet nospiestu, lai atiestatītu progresu'
+    holdToReset: 'Turiet nospiestu, lai atiestatītu progresu',
+    times: '·',
+    divide: ':'
   },
   mk: {
     reveal: 'Прикажи го одговорот',
     didntKnow: 'Не знам',
     knew: 'Знам',
-    holdToReset: 'Задржете за да го ресетирате напредокот'
+    holdToReset: 'Задржете за да го ресетирате напредокот',
+    times: '·',
+    divide: ':'
   },
   ml: {
     reveal: 'ഉത്തരം കാണിക്കുക',
@@ -280,7 +323,9 @@ export default {
     reveal: 'Хариултыг харуулах',
     didntKnow: 'Мэдэхгүй',
     knew: 'Мэднэ',
-    holdToReset: 'Явцыг шинэчлэхийн тулд удаан дарна уу'
+    holdToReset: 'Явцыг шинэчлэхийн тулд удаан дарна уу',
+    times: '·',
+    divide: ':'
   },
   mr: {
     reveal: 'उत्तर दाखवा',
@@ -304,7 +349,9 @@ export default {
     reveal: 'Vis svaret',
     didntKnow: 'Visste ikke',
     knew: 'Visste det',
-    holdToReset: 'Hold inne for å nullstille fremgangen'
+    holdToReset: 'Hold inne for å nullstille fremgangen',
+    times: '·',
+    divide: ':'
   },
   ne: {
     reveal: 'उत्तर देखाउनुहोस्',
@@ -316,13 +363,16 @@ export default {
     reveal: 'Toon het antwoord',
     didntKnow: 'Wist ik niet',
     knew: 'Wist ik',
-    holdToReset: 'Houd ingedrukt om de voortgang te wissen'
+    holdToReset: 'Houd ingedrukt om de voortgang te wissen',
+    divide: ':'
   },
   nn: {
     reveal: 'Vis svaret',
     didntKnow: 'Visste ikkje',
     knew: 'Visste det',
-    holdToReset: 'Hald inne for å nullstille framgangen'
+    holdToReset: 'Hald inne for å nullstille framgangen',
+    times: '·',
+    divide: ':'
   },
   pa: {
     reveal: 'ਜਵਾਬ ਦਿਖਾਓ',
@@ -334,7 +384,9 @@ export default {
     reveal: 'Pokaż odpowiedź',
     didntKnow: 'Nie wiem',
     knew: 'Wiem',
-    holdToReset: 'Przytrzymaj, aby zresetować postęp'
+    holdToReset: 'Przytrzymaj, aby zresetować postęp',
+    times: '·',
+    divide: ':'
   },
   pt: {
     reveal: 'Mostrar a resposta',
@@ -352,13 +404,17 @@ export default {
     reveal: 'Arată răspunsul',
     didntKnow: 'Nu știam',
     knew: 'Știam',
-    holdToReset: 'Ține apăsat pentru a reseta progresul'
+    holdToReset: 'Ține apăsat pentru a reseta progresul',
+    times: '·',
+    divide: ':'
   },
   ru: {
     reveal: 'Показать ответ',
     didntKnow: 'Не знаю',
     knew: 'Знаю',
-    holdToReset: 'Удерживайте, чтобы сбросить прогресс'
+    holdToReset: 'Удерживайте, чтобы сбросить прогресс',
+    times: '·',
+    divide: ':'
   },
   si: {
     reveal: 'පිළිතුර පෙන්වන්න',
@@ -370,13 +426,17 @@ export default {
     reveal: 'Zobraziť odpoveď',
     didntKnow: 'Neviem',
     knew: 'Viem',
-    holdToReset: 'Podržaním vynulujete postup'
+    holdToReset: 'Podržaním vynulujete postup',
+    times: '·',
+    divide: ':'
   },
   sl: {
     reveal: 'Pokaži odgovor',
     didntKnow: 'Ne vem',
     knew: 'Vem',
-    holdToReset: 'Pridržite za ponastavitev napredka'
+    holdToReset: 'Pridržite za ponastavitev napredka',
+    times: '·',
+    divide: ':'
   },
   sq: {
     reveal: 'Shfaq përgjigjen',
@@ -388,13 +448,17 @@ export default {
     reveal: 'Прикажи одговор',
     didntKnow: 'Не знам',
     knew: 'Знам',
-    holdToReset: 'Задржите да бисте ресетовали напредак'
+    holdToReset: 'Задржите да бисте ресетовали напредак',
+    times: '·',
+    divide: ':'
   },
   'sr-Latn': {
     reveal: 'Prikaži odgovor',
     didntKnow: 'Ne znam',
     knew: 'Znam',
-    holdToReset: 'Zadržite da biste resetovali napredak'
+    holdToReset: 'Zadržite da biste resetovali napredak',
+    times: '·',
+    divide: ':'
   },
   sv: {
     reveal: 'Visa svaret',
@@ -436,7 +500,9 @@ export default {
     reveal: 'Показати відповідь',
     didntKnow: 'Не знаю',
     knew: 'Знаю',
-    holdToReset: 'Утримуйте, щоб скинути прогрес'
+    holdToReset: 'Утримуйте, щоб скинути прогрес',
+    times: '·',
+    divide: ':'
   },
   ur: {
     reveal: 'جواب دکھائیں',
@@ -448,7 +514,9 @@ export default {
     reveal: 'Javobni ko‘rsatish',
     didntKnow: 'Bilmasdim',
     knew: 'Bilardim',
-    holdToReset: 'Taraqqiyotni tiklash uchun bosib turing'
+    holdToReset: 'Taraqqiyotni tiklash uchun bosib turing',
+    times: '·',
+    divide: ':'
   },
   vi: {
     reveal: 'Hiện đáp án',

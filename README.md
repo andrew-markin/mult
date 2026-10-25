@@ -25,7 +25,9 @@ switches on the fly when that preference changes. Numbers are formatted for the 
 for instance Arabic in Egypt gets Eastern Arabic digits, and right-to-left languages get a mirrored
 layout, while the arithmetic itself still reads left to right. Translations live in
 [`src/locales.js`](src/locales.js): to add a language, add its four strings there, keyed by its
-language code (with a region or script when needed, like `pt-PT` or `zh-Hant`).
+language code (with a region or script when needed, like `pt-PT` or `zh-Hant`). Operation signs are
+localized there too, so that, for instance, Russian and German get `6 · 7` and `42 : 7` the way
+their schools write them.
 
 ## How questions are picked
 

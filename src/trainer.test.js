@@ -8,13 +8,13 @@ describe('createFacts', () => {
   const facts = createFacts()
 
   it('covers the multiplication table from 2 to 9', () => {
-    const products = facts.filter((fact) => fact.operator === '×')
+    const products = facts.filter((fact) => fact.operator === 'times')
     expect(products).toHaveLength(64)
     for (const { left, right, answer } of products) expect(answer).toBe(left * right)
   })
 
   it('covers division by the same table', () => {
-    const quotients = facts.filter((fact) => fact.operator === '÷')
+    const quotients = facts.filter((fact) => fact.operator === 'divide')
     expect(quotients).toHaveLength(64)
     for (const { left, right, answer } of quotients) {
       expect(left).toBe(answer * right)

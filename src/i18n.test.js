@@ -46,10 +46,12 @@ describe('textDirection', () => {
 })
 
 describe('translations', () => {
-  const keys = Object.keys(messages.en).sort()
+  const optional = ['times', 'divide']
+  const required = Object.keys(messages.en).filter((key) => !optional.includes(key))
 
   it.each(Object.keys(messages))('%s translates every string', (locale) => {
-    expect(Object.keys(messages[locale]).sort()).toEqual(keys)
+    for (const key of required) expect(messages[locale]).toHaveProperty(key)
+    for (const key of Object.keys(messages[locale])) expect(messages.en).toHaveProperty(key)
     for (const text of Object.values(messages[locale])) expect(text.trim()).not.toBe('')
   })
 

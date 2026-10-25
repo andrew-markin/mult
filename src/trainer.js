@@ -7,12 +7,19 @@ export function createFacts() {
       const product = a * b
       // Facts sharing factors, like 6 × 7, 7 × 6, 42 ÷ 6 and 42 ÷ 7
       const family = `${Math.min(a, b)} × ${Math.max(a, b)}`
-      facts.push({ key: `${a} × ${b}`, family, left: a, operator: '×', right: b, answer: product })
+      facts.push({
+        key: `${a} × ${b}`,
+        family,
+        left: a,
+        operator: 'times',
+        right: b,
+        answer: product
+      })
       facts.push({
         key: `${product} ÷ ${b}`,
         family,
         left: product,
-        operator: '÷',
+        operator: 'divide',
         right: b,
         answer: a
       })
