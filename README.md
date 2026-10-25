@@ -16,6 +16,15 @@ it survives reloads and works offline once the app is installed.
 Both `a × b` and `b × a` are asked separately on purpose: recognizing either form is part of the
 training. Multiplying by 1 is too trivial to be worth drilling, hence the table starts with 2.
 
+## Languages
+
+The app speaks the first of the browser's preferred languages it has a translation for, and
+switches on the fly when that preference changes. Numbers are formatted for the user's locale, so
+for instance Arabic in Egypt gets Eastern Arabic digits, and right-to-left languages get a mirrored
+layout, while the arithmetic itself still reads left to right. Translations live in
+[`src/locales.js`](src/locales.js): to add a language, add its four strings there, keyed by its
+language code (with a region or script when needed, like `pt-PT` or `zh-Hant`).
+
 ## How questions are picked
 
 Every answer advances an iteration counter. For each fact the trainer remembers the iteration it was
