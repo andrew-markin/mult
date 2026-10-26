@@ -42,7 +42,7 @@ export default defineConfig({
       manifest: {
         name: 'Mult',
         short_name: 'Mult',
-        description: 'Multiplication trainer',
+        description: 'Multiplication and division trainer',
         theme_color: background,
         background_color: background,
         orientation: 'portrait-primary',
