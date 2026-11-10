@@ -17,6 +17,7 @@
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.exclude": {
+    ".eslintcache": true,
     "dist": true,
     "graphics": true,
     "node_modules": true,
