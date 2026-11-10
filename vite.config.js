@@ -37,7 +37,10 @@ export default defineConfig({
         clientsClaim: true,
         globPatterns: ['**/*.{js,css,html,png,svg,ttf,woff,woff2}'],
         // iOS reads launch screens when the app is added to the home screen, no need to cache them
-        globIgnores: ['splash/**']
+        globIgnores: ['splash/**'],
+        // Files with hashed names are cached by their names alone, except for stylesheets,
+        // which keep their names when purged (see plugins/purge-css.js), checked by content
+        dontCacheBustURLsMatching: /-[\w-]{8}\.(?!css$)\w+$/
       },
       manifest: {
         name: 'Mult',
@@ -78,7 +81,8 @@ export default defineConfig({
       }
     }),
     iosSplashScreens({ color: background }),
-    // The score badge colors are picked at runtime
+    // The score badge colors are picked at runtime as bg-${color}, a part too short for
+    // the plugin to keep by itself
     purgeCss({ safelist: ['bg-negative', 'bg-warning', 'bg-positive'] })
   ],
   resolve: {

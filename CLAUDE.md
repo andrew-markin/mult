@@ -33,3 +33,8 @@ dates here and commit.
   Spanish, Portuguese, Catalan, Swedish and Icelandic keep `×` and `÷` for lack of certainty.
 - Heading lines of the README are drawn over floating images by GitHub, so no `#` or `##`
   heading may sit beside the animation; the text before "How to use" has to be long enough.
+- `plugins/purge-css.js` (shared with Spark) keeps the classes Quasar puts together at runtime by
+  the parts of their names found in the scripts, except parts shorter than four characters like
+  `bg-`, so the score badge colors are listed in its safelist. It keeps the stylesheet names, and
+  the service worker checks stylesheets by content (`dontCacheBustURLsMatching`). After Quasar
+  updates, compare the computed styles of the app between `npm run dev` and `npm run preview`.
