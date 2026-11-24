@@ -1,8 +1,17 @@
 # Agent notes
 
 Mult is a multiplication and division trainer, a Vue 3 + Quasar PWA built with Vite and
-deployed to GitHub Pages at https://mult.mayfleet.com. See README.md for how it works.
+deployed to GitHub Pages at https://mult.mayfleet.com; the Deploy workflow publishes the
+build straight to Pages, there is no gh-pages branch. See README.md for how it works.
 CLAUDE.md is a symlink to this file kept for Claude Code.
+
+## Fresh machine
+
+- Any Node from `engines` in package.json, the Deploy workflow runs Node 22.
+- Git talks to GitHub over SSH, and watching pull requests and Deploy runs needs the GitHub
+  CLI (`gh`) logged in.
+- `npm run demo` needs Google Chrome and ffmpeg built with libwebp, see the header of
+  `scripts/demo/record.js`.
 
 ## Workflow
 
