@@ -1,4 +1,4 @@
-# Notes for Claude
+# Agent notes
 
 Mult is a multiplication and division trainer, a Vue 3 + Quasar PWA built with Vite and
 deployed to GitHub Pages at https://mult.mayfleet.com. See README.md for how it works.
@@ -11,8 +11,19 @@ deployed to GitHub Pages at https://mult.mayfleet.com. See README.md for how it 
   the browser, at a phone width too.
 - Push only when asked. After a push watch the Deploy workflow and check the site; an installed
   PWA picks a new version up on the second launch.
-- Dependabot opens weekly pull requests with updates; the Deploy workflow checks them without
-  deploying.
+
+## Dependabot updates
+
+Dependabot opens a weekly group pull request with minor and patch updates. To check one:
+
+- The diff should touch only `package.json` and `package-lock.json`.
+- The `build` check runs `npm ci`, both linters, the tests and the build on the new versions,
+  so green CI needs no local rerun; `deploy` stays skipped on pull requests.
+- Skim the release notes of the bumped packages for security fixes and behavior changes. The
+  app is an SPA, so Quasar SSR fixes do not apply, but a Quasar bump needs the computed-style
+  comparison between `npm run dev` and `npm run preview` from the purge-css decision below.
+- Merge as squash with branch deletion, as the earlier update PRs. Afterwards pull `main`,
+  run `npm install`, and watch the Deploy workflow and the site as after any push.
 
 ## Periodic checks
 
