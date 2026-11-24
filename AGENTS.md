@@ -2,6 +2,7 @@
 
 Mult is a multiplication and division trainer, a Vue 3 + Quasar PWA built with Vite and
 deployed to GitHub Pages at https://mult.mayfleet.com. See README.md for how it works.
+CLAUDE.md is a symlink to this file kept for Claude Code.
 
 ## Workflow
 
